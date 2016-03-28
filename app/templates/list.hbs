@@ -1,0 +1,17 @@
+{{#if model}}
+	{{#each}}
+	<div class="userdetail"{{bind-attr id=_id}}>
+		 <span>
+		 <span><strong>{{userName}}</strong></span> <span style="margin-left: 2%;">{{date}}</span>
+		 </span>
+		 <br>
+		 {{star-rating starRating=rate maxStars=5}}
+		 <br>
+		 <span>{{content}}</span>
+		 <div {{action 'deleteComment' _id}} class='destroy'>{{when-equal userName controller.adminUser}}</div>
+	</div>
+	{{/each}}
+{{else}}
+	<p id="ifNoComment">There is no comments now!</p>
+{{/if}}
+
